@@ -1,0 +1,27 @@
+{
+  "name": "barnshed",
+  "version": "1.0.0",
+  "description": "BarnBoard API",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js",
+    "dev": "npx -y nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mul4n/barnshed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mul4n/barnshed/issues"
+  },
+  "homepage": "https://github.com/Mul4n/barnshed#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "mongoose": "^8.6.2"
+  }
+}
