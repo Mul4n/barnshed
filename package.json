@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/Mul4n/barnshed#readme",
   "dependencies": {
-    "@wookbot/rpi-ws281x": "^1.0.37",
+    "@ircam/rpi-ws281x-native": "^1.0.5",
     "cors": "^2.8.5",
     "express": "^4.21.0",
     "mongoose": "^8.6.2"

@@ -1,13 +1,14 @@
 import { holdsToLeds, L, C } from '../utils/index.js';
 import { getBoulderById } from './BoulderService.js';
-import ws281x from '@wookbot/rpi-ws281x';
+import ws281x from '@ircam/rpi-ws281x-native';
 
-ws281x.configure({ leds: L * C });
+const channel = ws281x(L * C);
 
 export const lightsUpBoulder = async (id) => {
   const boulder = await getBoulderById(id);
   const leds = holdsToLeds(boulder.holds);
-  ws281x.render(leds);
+  channel.array = leds;
+  ws281x.render();
   return leds;
 }
 
