@@ -1,5 +1,5 @@
-export const L = 5; // Number of lines
-export const C = 5; // Number of columns
+export const L = 12; // Number of lines
+export const C = 12; // Number of columns
 
 const COLORS = {
   '1': 0x00ff00,
@@ -8,8 +8,7 @@ const COLORS = {
 };
 
 //Careful I think this formula depends on the parity of L. This as been done with a pair L
-export const holdsToLeds = (boulder) => {
-  const ledArray = new Uint32Array(L * C);
+export const holdsToLeds = (boulder, leds) => {
   console.log('holds in utils', boulder.holds.keys());
   boulder.holds.keys().forEach((stringHoldIndex) => {
     console.log('holdindex',stringHoldIndex, boulder.holds.get(stringHoldIndex));
@@ -18,8 +17,8 @@ export const holdsToLeds = (boulder) => {
       (Math.ceil(Math.floor(holdIndex / C) / 2)) * 2 * C +
       ((Math.floor(holdIndex / C) + 1) % 2 ? -1 : 1) * (holdIndex % C + (Math.floor(holdIndex / C) + 1) % 2);
 
-    ledArray[ledIndex] = COLORS[boulder.holds.get(stringHoldIndex)];
+    leds[ledIndex] = COLORS[boulder.holds.get(stringHoldIndex)];
   });
 
-  return ledArray;
+  return leds;
 }
