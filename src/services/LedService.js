@@ -14,6 +14,7 @@ const channel = ws281x(L * C, {
 export const lightsUpBoulder = async (id) => {
   const boulder = await getBoulderById(id);
   console.log('Boulder ?', boulder);
+  ws281x.reset();
   const leds = holdsToLeds(boulder, channel.array);
   console.log('Channel ?', channel.array);
   channel.render();
