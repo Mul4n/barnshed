@@ -6,6 +6,11 @@ export const lightsUpBoulder = async (req, res) => {
   res.json({ data: leds, status: 'success' })
 }
 
+export const lightsUpFromHolds = async (req, res) => {
+  const leds = LedService.lightsUpFromHolds(req.body);
+  res.json({ data: leds, status: 'success' });
+}
+
 export const lightsOff = (_, res) => {
   LedService.lightsOff();
   res.json({ status: 'success' });

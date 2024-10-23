@@ -11,16 +11,19 @@ const channel = ws281x(L * C, {
   stripType: ws281x.stripType.WS2811_RGB
 });
 
-export const lightsUpBoulder = async (id) => {
-  const boulder = await getBoulderById(id);
-  console.log('Boulder ?', boulder);
+export const lightsUpFromHolds = (boulder) => {
   ws281x.reset();
   const leds = holdsToLeds(boulder, channel.array);
-  console.log('Channel ?', channel.array);
   channel.render();
 
   return leds;
 }
+
+export const lightsUpBoulder = async (id) => {
+  const boulder = await getBoulderById(id);
+  return lightsUpFromHolds(boulder);
+}
+
 
 export const lightsOff = () => {
   ws281x.reset();
