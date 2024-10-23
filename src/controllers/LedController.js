@@ -7,7 +7,10 @@ export const lightsUpBoulder = async (req, res) => {
 }
 
 export const lightsUpFromHolds = async (req, res) => {
-  const leds = LedService.lightsUpFromHolds(req.body);
+ console.log('will light up from holds: ', req.body);
+  const boulder = req.body;
+  const holdsMap = new Map(Object.entries(boulder.holds));
+  const leds = LedService.lightsUpFromHolds({ ...boulder, holds: holdsMap });
   res.json({ data: leds, status: 'success' });
 }
 

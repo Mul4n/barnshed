@@ -9,6 +9,7 @@ const COLORS = {
 
 //Careful I think this formula depends on the parity of L. This as been done with a pair L
 export const holdsToLeds = (boulder, leds) => {
+  console.log('Boulder ?', boulder);
   console.log('holds in utils', boulder.holds.keys());
   boulder.holds.keys().forEach((stringHoldIndex) => {
     console.log('holdindex',stringHoldIndex, boulder.holds.get(stringHoldIndex));
